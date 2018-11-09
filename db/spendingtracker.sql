@@ -13,21 +13,21 @@ CREATE TABLE users (
 
 CREATE TABLE merchants (
   id SERIAL4 PRIMARY KEY,
-  merchant_name VARCHAR(255) not null,
-  user_id INT4
+  name VARCHAR(255) not null,
+  user_id INT4 REFERENCES users(id)
 );
 
 CREATE TABLE labels (
   id SERIAL4 PRIMARY KEY,
-  user_id INT4,
+  user_id INT4 REFERENCES users(id),
   label VARCHAR(255) not null
 );
 
 CREATE TABLE transactions (
   id SERIAL4 PRIMARY KEY,
-  user_id INT4,
-  merchant_id INT4,
-  label_id INT4,
+  user_id INT4 REFERENCES users(id),
+  merchant_id INT4 REFERENCES merchants(id),
+  label_id INT4 REFERENCES labels(id),
   amount DECIMAL(8, 2) not null,
   time_stamp TIMESTAMP
 );

@@ -14,4 +14,28 @@ class Transaction
     @time_stamp = options['time_stamp']
   end
 
+  # **************************************************
+  # SQL Functions
+  # **************************************************
+
+  def save()
+    sql = "INSERT INTO transactions
+    (
+      user_id,
+      merchant_id,
+      label_id,
+      amount,
+      time_stamp
+    )
+    VALUES
+    (
+      $1, $2, $3, $4, $5
+    )
+    RETURNING id"
+    values = [@user_id, @merchant_id, @label_id, @amount, @time_stamp]
+    result = SqlRunner.run(sql, values)
+    id = result.first["id"]
+    @id = id.to_i
+  end
+
 end
