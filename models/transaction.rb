@@ -6,11 +6,11 @@ class Transaction
   attr_accessor :amount
 
   def initialize(options)
-    @id = options['id'] if options['id']
-    @user_id = options['user_id']
-    @merchant_id = options['merchant_id']
-    @label_id = options['label_id']
-    @amount = options['amount']
+    @id = options['id'].to_i if options['id']
+    @user_id = options['user_id'].to_i
+    @merchant_id = options['merchant_id'].to_i
+    @label_id = options['label_id'].to_i
+    @amount = options['amount'].to_f
     @time_stamp = options['time_stamp']
   end
 

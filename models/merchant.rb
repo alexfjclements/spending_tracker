@@ -6,8 +6,8 @@ class Merchant
   attr_accessor :name
 
   def initialize(options)
-    @id = options['id'] if options['id']
-    @user_id = options['user_id']
+    @id = options['id'].to_i if options['id']
+    @user_id = options['user_id'].to_i
     @name = options['name']
   end
 

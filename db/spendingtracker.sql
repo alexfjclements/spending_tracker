@@ -8,7 +8,7 @@ CREATE TABLE users (
   username VARCHAR(255) not null,
   name VARCHAR(255),
   monthly_budget DECIMAL(8, 2),
-  transactions_to_display INT4
+  transactions_to_disp INT4
 );
 
 CREATE TABLE merchants (
