@@ -1,3 +1,5 @@
+require_relative('../db/sql_runner')
+
 class Label
 
   attr_reader :id, :user_id
