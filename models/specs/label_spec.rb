@@ -6,11 +6,19 @@ require_relative('../label')
 class LabelTest < MiniTest::Test
 
   def setup()
-    options = {'user_id' => 1, 'label' => 'groceries'}
+    options = {
+      'id' => 1,
+      'user_id' => 1,
+      'label' => 'groceries'
+    }
     @label1 = Label.new(options)
   end
 
   def test_readers
+    expected = 1
+    actual = @label1.id
+    assert_equal(expected, actual)
+
     expected = 1
     actual = @label1.user_id
     assert_equal(expected, actual)
