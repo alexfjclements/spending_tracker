@@ -54,4 +54,14 @@ class TransactionTest < MiniTest::Test
 end
 
 # Print all test
-pp Transaction.all
+# pp Transaction.all
+
+transaction1 = Transaction.all.last
+pp transaction1
+
+# Transaction delete test
+# transaction1.delete
+
+# user1 = User.all.first
+# pp user1
+#
