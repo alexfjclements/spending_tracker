@@ -24,14 +24,6 @@ class Transaction
     return transactions.map { |transaction| Transaction.new(transaction) }
   end
 
-  def self.find( id )
-    sql = "SELECT transactions.* FROM transactions
-    WHERE id = $1"
-    values = [id]
-    results = SqlRunner.run( sql, values )
-    return Transaction.new( results.first )
-  end
-
   def save()
     sql = "INSERT INTO transactions
     (

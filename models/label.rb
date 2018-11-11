@@ -21,14 +21,6 @@ class Label
     return labels.map { |label| Label.new(label) }
   end
 
-  def self.find( id )
-    sql = "SELECT labels.* FROM labels
-    WHERE id = $1"
-    values = [id]
-    results = SqlRunner.run( sql, values )
-    return Label.new( results.first )
-  end
-
   def save()
     sql = "INSERT INTO labels
     (
