@@ -39,4 +39,10 @@ class MerchantTest < MiniTest::Test
 end
 
 # Print all test
-pp Merchant.all
+# pp Merchant.all
+
+merchant1 = Merchant.all.last
+pp merchant1
+
+# Merchant delete test
+# merchant1.delete
