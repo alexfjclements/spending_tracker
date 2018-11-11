@@ -42,4 +42,18 @@ class User
     @id = id.to_i
   end
 
+  def update()
+    sql = "UPDATE users
+    SET (
+      username,
+      name,
+      monthly_budget,
+      transactions_to_disp
+      ) = (
+        $1, $2, $3, $4
+        ) WHERE id = $5"
+    values = [@username, @name, @monthly_budget, @transactions_to_disp, @id]
+    SqlRunner.run(sql, values)
+  end
+
 end
