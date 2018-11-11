@@ -24,6 +24,13 @@ class Transaction
     return transactions.map { |transaction| Transaction.new(transaction) }
   end
 
+  def self.delete_user_transac(id)
+    sql = "DELETE FROM transactions
+    WHERE user_id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
   def save()
     sql = "INSERT INTO transactions
     (

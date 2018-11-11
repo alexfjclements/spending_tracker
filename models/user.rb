@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('transaction')
 
 class User
 
@@ -54,6 +55,10 @@ class User
         ) WHERE id = $5"
     values = [@username, @name, @monthly_budget, @transactions_to_disp, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def delete_transactions()
+    Transaction.delete_user_transac(@id)
   end
 
 end

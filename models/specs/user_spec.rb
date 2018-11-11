@@ -72,3 +72,6 @@ pp user1
 # User update method test
 # user1.username = "Spongebob"
 # user1.update
+
+# User delete transations test
+user1.delete_transactions
