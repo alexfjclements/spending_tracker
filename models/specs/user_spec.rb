@@ -64,4 +64,11 @@ class UserTest < MiniTest::Test
 end
 
 # Print all test
-pp User.all
+# pp User.all
+
+user1 = User.all.last
+pp user1
+
+# User update method test
+# user1.username = "Spongebob"
+# user1.update

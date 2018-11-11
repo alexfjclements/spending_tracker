@@ -61,7 +61,3 @@ pp transaction1
 
 # Transaction delete test
 # transaction1.delete
-
-# user1 = User.all.first
-# pp user1
-#
