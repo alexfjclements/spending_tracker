@@ -1,5 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
+require('pp')
 require_relative('../merchant')
 
 
@@ -36,3 +37,5 @@ class MerchantTest < MiniTest::Test
   end
 
 end
+
+pp Merchant.all

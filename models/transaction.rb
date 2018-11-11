@@ -18,6 +18,12 @@ class Transaction
   # SQL Functions
   # **************************************************
 
+  def self.all()
+    sql = "SELECT transactions.* FROM transactions"
+    transactions = SqlRunner.run(sql)
+    return transactions.map { |transaction| Transaction.new(transaction) }
+  end
+
   def save()
     sql = "INSERT INTO transactions
     (

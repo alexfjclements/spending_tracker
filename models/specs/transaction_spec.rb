@@ -1,5 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
+require('pp')
 require_relative('../transaction')
 
 
@@ -51,3 +52,5 @@ class TransactionTest < MiniTest::Test
   end
 
 end
+
+pp Transaction.all

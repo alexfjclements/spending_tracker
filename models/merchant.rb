@@ -15,6 +15,12 @@ class Merchant
   # SQL Functions
   # **************************************************
 
+  def self.all()
+    sql = "SELECT merchants.* FROM merchants"
+    merchants = SqlRunner.run(sql)
+    return merchants.map { |merchant| Merchant.new(merchant) }
+  end
+
   def save()
     sql = "INSERT INTO merchants
     (

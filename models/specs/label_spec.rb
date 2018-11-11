@@ -1,5 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
+require('pp')
 require_relative('../label')
 
 
@@ -36,3 +37,5 @@ class LabelTest < MiniTest::Test
   end
 
 end
+
+pp Label.all

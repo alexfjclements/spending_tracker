@@ -1,5 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
+require('pp')
 require_relative('../user')
 
 
@@ -61,3 +62,5 @@ class UserTest < MiniTest::Test
   end
 
 end
+
+pp User.all

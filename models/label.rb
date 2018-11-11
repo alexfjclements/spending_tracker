@@ -15,6 +15,12 @@ class Label
   # SQL Functions
   # **************************************************
 
+  def self.all()
+    sql = "SELECT labels.* FROM labels"
+    labels = SqlRunner.run(sql)
+    return labels.map { |label| Label.new(label) }
+  end
+
   def save()
     sql = "INSERT INTO labels
     (

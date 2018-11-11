@@ -17,6 +17,12 @@ class User
   # SQL Functions
   # **************************************************
 
+  def self.all()
+    sql = "SELECT users.* FROM users"
+    users = SqlRunner.run(sql)
+    return users.map { |user| User.new(user) }
+  end
+
   def save()
     sql = "INSERT INTO users
     (
