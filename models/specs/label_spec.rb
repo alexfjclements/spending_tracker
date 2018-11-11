@@ -39,4 +39,17 @@ class LabelTest < MiniTest::Test
 end
 
 # Print all test
-pp Label.all
+# pp Label.all
+
+label1 = Label.all.last
+pp label1
+
+label1.delete
+# merchant1 = Merchant.all.first
+# pp merchant1
+#
+# user1 = User.all.first
+# pp user1
+#
+# transaction1 = Transaction.all.first
+# pp transaction1

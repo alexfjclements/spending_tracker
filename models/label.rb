@@ -38,4 +38,11 @@ class Label
     @id = id.to_i
   end
 
+  def delete()
+    sql = "DELETE FROM labels
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
 end
