@@ -38,4 +38,5 @@ class LabelTest < MiniTest::Test
 
 end
 
+# Print all test
 pp Label.all

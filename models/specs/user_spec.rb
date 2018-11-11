@@ -63,4 +63,5 @@ class UserTest < MiniTest::Test
 
 end
 
+# Print all test
 pp User.all

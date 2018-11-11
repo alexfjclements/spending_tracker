@@ -38,4 +38,5 @@ class MerchantTest < MiniTest::Test
 
 end
 
+# Print all test
 pp Merchant.all

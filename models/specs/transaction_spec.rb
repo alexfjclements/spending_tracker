@@ -53,4 +53,5 @@ class TransactionTest < MiniTest::Test
 
 end
 
+# Print all test
 pp Transaction.all
