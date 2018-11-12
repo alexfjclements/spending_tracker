@@ -4,9 +4,11 @@
   <label for="button" onclick>Add/Remove</label>
 
   <div class="add">
-    <h2>New Label</h2>
-    <input type="text" name="label-text">
-    <label for=""label-text">Save</label>
+    <form action="/labels" method="post">
+      <h2>New Label</h2>
+      <input type="text" name="label">
+      <input class="btn btn--action" type='submit' value="Save">
+    </form>
   </div>
 
   <div class="remove">
