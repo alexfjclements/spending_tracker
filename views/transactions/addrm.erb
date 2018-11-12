@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <input type="checkbox" id="button" />
+  <label for="button" onclick>Add/Remove</label>
+
+  <div class="add">
+    <form action="/transactions" method="post">
+      <h2>New Transaction</h2>
+      <select name="merchant_id">
+      <% @merchants.each do |merchant| %>
+        <option value="<%=merchant.id%>"><%=merchant.name.capitalize%></option>
+      <% end  %>
+      </select>
+      <input type="decimal" name="amount">
+      <select name="label_id">
+      <% @labels.each do |label| %>
+        <option value="<%=label.id%>"><%=label.label.capitalize%></option>
+      <% end  %>
+      </select>
+      <input class="btn btn--action" type='submit' value="Save">
+    </form>
+  </div>
+
+  <div class="remove">
+    <form action="/transactions/delete" method="post">
+      <h2>Delete Transaction</h2>
+      <select name="transaction_id">
+        <% @transactions.each do |transaction| %>
+          <option value="<%=transaction.id%>"><%=transaction.amount%></option>
+        <% end  %>
+      </select>
+      <input class="btn btn--action" type='submit' value="Delete">
+    </form>
+  </div>
+</div>

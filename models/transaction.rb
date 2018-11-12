@@ -31,6 +31,13 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM transactions WHERE id = $1"
+    values = [id]
+    transactions = SqlRunner.run(sql, values)
+    return transactions.map { |transaction| Transaction.new(transaction) }.first
+  end
+
   def save()
     sql = "INSERT INTO transactions
     (
