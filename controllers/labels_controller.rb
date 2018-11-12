@@ -9,4 +9,5 @@ post '/labels' do
   params.merge!("user_id" => 1)
   label = Label.new(params)
   label.save
+  redirect to "/labels"
 end
