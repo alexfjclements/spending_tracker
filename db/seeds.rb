@@ -69,4 +69,31 @@ transaction1 = Transaction.new({
   'time_stamp' => '12/08/18'
   })
 
+transaction2 = Transaction.new({
+  'user_id' => user1.id,
+  'merchant_id' => 1,
+  'label_id' => 1,
+  'amount' => 30,
+  'time_stamp' => '12/08/18'
+  })
+
+transaction3 = Transaction.new({
+  'user_id' => user2.id,
+  'merchant_id' => 1,
+  'label_id' => 1,
+  'amount' => 30,
+  'time_stamp' => '12/08/18'
+  })
+
+transaction4 = Transaction.new({
+  'user_id' => user2.id,
+  'merchant_id' => 1,
+  'label_id' => 1,
+  'amount' => 30,
+  'time_stamp' => '12/08/18'
+  })
+
 transaction1.save
+transaction2.save
+transaction3.save
+transaction4.save
