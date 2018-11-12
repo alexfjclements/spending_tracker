@@ -24,8 +24,11 @@
     <form action="/transactions/delete" method="post">
       <h2>Delete Transaction</h2>
       <select name="transaction_id">
-        <% @transactions.each do |transaction| %>
-          <option value="<%=transaction.id%>"><%=transaction.amount%></option>
+        <% @trans_pres.each do |transaction| %>
+          <option value="<%=transaction.id%>">
+            <%= "#{transaction.name} #{transaction.amount}
+            #{transaction.label} #{transaction.time_stamp}"%>
+          </option>
         <% end  %>
       </select>
       <input class="btn btn--action" type='submit' value="Delete">

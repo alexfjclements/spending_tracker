@@ -2,6 +2,7 @@ get '/transactions' do
   @transactions = Transaction.all()
   @merchants = Merchant.all()
   @labels = Label.all()
+  @trans_pres = Transaction.present()
   erb ( :"transactions/addrm" )
 end
 
