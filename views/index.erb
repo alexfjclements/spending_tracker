@@ -1,1 +1,7 @@
 <h1>Moneybags!</h1>
+
+<select>
+  <% @labels.each do |label| %>
+    <option value="<%=label.id%>"><%=label.label.capitalize%></option>
+  <% end  %>
+</select>

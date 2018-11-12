@@ -1,0 +1,53 @@
+input[type="submit"] {
+  text-transform: uppercase;
+  font-family: 'Special Elite', cursive;
+}
+
+input[type=checkbox] {
+   position: absolute;
+   top: -9999px;
+   left: -9999px;
+}
+
+label {
+  -webkit-appearance: push-button;
+  -moz-appearance: button;
+  display: inline-block;
+  margin: 60px 0 10px 0;
+  cursor: pointer;
+  color: black;
+}
+
+select {
+ width: 150px;
+ padding: 5px 35px 5px 5px;
+ margin: 15px 0;
+ font-size: 0.8em;
+ -webkit-appearance: none;
+ font-family: 'Merriweather', serif;
+ border: 1px solid #eee;
+ display: block;
+}
+
+.wrapper .add {
+    display: none;
+    margin-top: 1em;
+}
+
+.wrapper .remove {
+    display: none;
+    margin-top: 1em;
+}
+
+.wrapper input#button:not(:checked) ~ .add {
+  display: block;
+}
+
+.wrapper input#button:checked ~ .remove {
+  display: block;
+}
+
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
