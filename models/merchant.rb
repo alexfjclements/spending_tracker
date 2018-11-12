@@ -21,6 +21,13 @@ class Merchant
     return merchants.map { |merchant| Merchant.new(merchant) }
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM merchants WHERE id = $1"
+    values = [id]
+    merchants = SqlRunner.run(sql, values)
+    return merchants.map { |merchant| Merchant.new(merchant) }.first
+  end
+
   def save()
     sql = "INSERT INTO merchants
     (
