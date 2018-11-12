@@ -12,6 +12,14 @@
   </div>
 
   <div class="remove">
-    <p>some other stuff</p>
+    <form action="/labels/delete" method="post">
+      <h2>Delete Label</h2>
+      <select name="label_id">
+        <% @labels.each do |label| %>
+          <option value="<%=label.id%>"><%=label.label.capitalize%></option>
+        <% end  %>
+      </select>
+      <input class="btn btn--action" type='submit' value="Delete">
+    </form>
   </div>
 </div>

@@ -27,7 +27,7 @@ CREATE TABLE transactions (
   id SERIAL4 PRIMARY KEY,
   user_id INT4 REFERENCES users(id),
   merchant_id INT4 REFERENCES merchants(id),
-  label_id INT4 REFERENCES labels(id),
+  label_id INT4 REFERENCES labels(id) ON DELETE SET NULL,
   amount DECIMAL(8, 2) not null,
   time_stamp TIMESTAMP
 );

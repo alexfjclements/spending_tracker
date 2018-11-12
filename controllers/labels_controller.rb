@@ -11,3 +11,9 @@ post '/labels' do
   label.save
   redirect to "/labels"
 end
+
+post '/labels/delete' do
+  label = Label.find(params["label_id"])
+  label.delete
+  redirect to "/labels"
+end
