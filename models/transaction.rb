@@ -1,3 +1,4 @@
+require('date')
 require_relative('../db/sql_runner')
 require_relative('transactionpresent')
 
@@ -12,7 +13,7 @@ class Transaction
     @merchant_id = options['merchant_id'].to_i
     @label_id = options['label_id'].to_i
     @amount = options['amount'].to_f
-    @time_stamp = options['time_stamp']
+    @time_stamp = Date.today
   end
 
   # **************************************************
@@ -56,6 +57,15 @@ class Transaction
       WHERE transactions.user_id = 1;"
     results = SqlRunner.run(sql)
     return results.map { |result| TransactionPresent.new(result) }
+  end
+
+  def self.month_spend_sum(user_id)
+    sum = 0
+    transactions = self.all
+    transactions.each do |transaction|
+      sum += transaction.amount if user_id == transaction.user_id && transaction.time_stamp.month.to_i == Date.today.month.to_i
+    end
+    return sum
   end
 
   def save()

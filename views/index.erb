@@ -1,7 +1,5 @@
 <h1>Moneybags!</h1>
+<p>Insert welcome message...</p>
 
-<select>
-  <% @labels.each do |label| %>
-    <option value="<%=label.id%>"><%=label.label.capitalize%></option>
-  <% end  %>
-</select>
+
+<%= "You have £" + @user.cash_remaining.to_s + " remaining this month." %>

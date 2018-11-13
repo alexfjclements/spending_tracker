@@ -68,4 +68,14 @@ class User
     Transaction.delete_user_transac(@id)
   end
 
+  def month_spend()
+    return Transaction.month_spend_sum(@id).to_f
+  end
+
+  def cash_remaining()
+    spent = month_spend()
+    remaining = @monthly_budget - spent
+    return remaining
+  end
+
 end

@@ -29,5 +29,5 @@ CREATE TABLE transactions (
   merchant_id INT4 REFERENCES merchants(id) ON DELETE SET NULL,
   label_id INT4 REFERENCES labels(id) ON DELETE SET NULL,
   amount DECIMAL(8, 2) not null,
-  time_stamp TIMESTAMP
+  time_stamp DATE
 );
