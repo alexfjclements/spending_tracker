@@ -10,17 +10,21 @@
   <link rel="stylesheet" type="text/css" href="/styles/tables.css">
 </head>
 <body>
-<main class="flex flex--row">
-  <div class="topnav">
-        <a href="/">Home</a>
-        <a href="/transactions">Add/Remove Transactions</a>
-        <a href="/labels">Add/Remove Labels</a>
-        <a href="/merchants">Add/Remove Merchants</a>
-        <a href="/settings">Settings</a>
+  <div class="banner">
+    <img src="/images/moneybag.png" alt="Moneybag" style="height:100px;">
+    <h1>Moneybags!</h1>
   </div>
-  <section id="content">
-  <%= yield %>
-  </section>
+  <main class="flex flex--row">
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/transactions">Add/Remove Transactions</a>
+      <a href="/labels">Add/Remove Labels</a>
+      <a href="/merchants">Add/Remove Merchants</a>
+      <a href="/settings">Settings</a>
+    </div>
+    <section id="content">
+      <%= yield %>
+    </section>
   </main>
 </body>
 </html>

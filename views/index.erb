@@ -1,8 +1,9 @@
-<h1>Moneybags!</h1>
 <p>Insert welcome message...</p>
 
-
-<%= "You have £" + @user.cash_remaining.to_s + " remaining this month." %>
+<br>
+<b><%= "You have £" + @user.cash_remaining.to_s + " remaining this month." %></b>
+<br>
+<br>
 <div class="transaction-list">
   <table style="width:70%">
     <div>
@@ -28,3 +29,6 @@
     <% end  %>
   </table>
 </div>
+<br>
+<br>
+<b><%= "You have spent £ #{@user.month_spend} of £#{@user.monthly_budget}"%></b>

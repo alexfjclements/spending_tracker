@@ -7,20 +7,20 @@
   font-family: 'Special Elite', cursive;
 }
 
-.btn--danger {
+.btn--action-sv:hover {
+  background-color: darkgreen;
+}
+
+.btn--action-sv {
+  background-color: grey;
+}
+
+.btn--action-del:hover {
   background-color: darkred;
 }
 
-.btn--danger:hover {
-  background-color: #730000;
-}
-
-.btn--action:hover {
-  background-color: #495C27;
-}
-
-.btn--action {
-  background-color: darkolivegreen;
+.btn--action-del {
+  background-color: grey;
 }
 
 .btn--wrapper {

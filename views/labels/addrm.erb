@@ -7,7 +7,7 @@
     <form action="/labels" method="post">
       <h2>New Label</h2>
       <input type="text" name="label">
-      <input class="btn btn--action" type='submit' value="Save">
+      <input class="btn btn--action-sv" type='submit' value="Save">
     </form>
   </div>
 
@@ -19,7 +19,7 @@
           <option value="<%=label.id%>"><%=label.label.capitalize%></option>
         <% end  %>
       </select>
-      <input class="btn btn--action" type='submit' value="Delete">
+      <input class="btn btn--action-del" type='submit' value="Delete">
     </form>
   </div>
 </div>
