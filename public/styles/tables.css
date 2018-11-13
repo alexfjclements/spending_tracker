@@ -1,16 +1,10 @@
-td, th {
-  text-align: left;
-}
-
-td {
-  padding: 10px 20px 0px 0px;
-}
-
-th {
-  padding: 0px 20px 10px 0px;
-  border-bottom: 1px solid papayawhip;
-}
-
 table {
+  border: 1px solid black;
   border-collapse: collapse;
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
 }

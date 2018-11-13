@@ -3,3 +3,28 @@
 
 
 <%= "You have £" + @user.cash_remaining.to_s + " remaining this month." %>
+<div class="transaction-list">
+  <table style="width:70%">
+    <div>
+      <tr>
+        <th>Merchant Name</th>
+        <th>Transaction Amount</th>
+        <th>Label</th>
+        <th>Date</th>
+      </tr>
+    </div>
+    <% @transactions_present.each do |transaction| %>
+      <tr>
+        <% date = Date.parse(transaction.time_stamp) %>
+        <div>
+          <% if date.month == Date.today.month %>
+            <td><%= transaction.name %></td>
+            <td><%= transaction.amount %></td>
+            <td><%= transaction.label %></td>
+            <td><%= transaction.time_stamp %></td>
+          <% end %>
+        </div>
+      </tr>
+    <% end  %>
+  </table>
+</div>
