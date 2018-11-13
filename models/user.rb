@@ -24,6 +24,13 @@ class User
     return users.map { |user| User.new(user) }
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM users WHERE id = $1"
+    values = [id]
+    users = SqlRunner.run(sql, values)
+    return users.map { |user| User.new(user) }.first
+  end
+
   def save()
     sql = "INSERT INTO users
     (

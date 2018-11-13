@@ -1,0 +1,21 @@
+<h1>Settings</h1>
+
+
+<form action="/settings" method="post">
+  <h3>Username:</h3>
+  <input type="text" name="username" value="<%= @user.username %>">
+
+  <h3>Name:</h3>
+  <input type="text" name="name" value="<%= @user.name %>">
+
+  <h3>Monthly Budget:</h3>
+  <input type="decimal" name="monthly_budget" value="<%= @user.monthly_budget %>">
+
+  <h3>Number of Transactions to Display:</h3>
+  <input type="number" name="transactions_to_disp"
+         min="5" max="100" value="20" step="1">
+  <br>
+  <br>
+  <input class="btn btn--action" type='submit' value="Save">
+
+</form>
