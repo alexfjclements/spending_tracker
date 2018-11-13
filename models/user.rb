@@ -4,14 +4,13 @@ require_relative('transaction')
 class User
 
   attr_reader :id
-  attr_accessor :username, :name, :monthly_budget, :transactions_to_disp
+  attr_accessor :username, :name, :monthly_budget
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @username = options['username']
     @name = options['name']
     @monthly_budget = options['monthly_budget'].to_f
-    @transactions_to_disp = options['transactions_to_disp'].to_i
   end
 
   # **************************************************
@@ -36,15 +35,14 @@ class User
     (
       username,
       name,
-      monthly_budget,
-      transactions_to_disp
+      monthly_budget
     )
     VALUES
     (
-      $1, $2, $3, $4
+      $1, $2, $3
     )
     RETURNING id"
-    values = [@username, @name, @monthly_budget, @transactions_to_disp]
+    values = [@username, @name, @monthly_budget]
     result = SqlRunner.run(sql, values)
     id = result.first["id"]
     @id = id.to_i
@@ -55,12 +53,11 @@ class User
     SET (
       username,
       name,
-      monthly_budget,
-      transactions_to_disp
+      monthly_budget
       ) = (
-        $1, $2, $3, $4
-        ) WHERE id = $5"
-    values = [@username, @name, @monthly_budget, @transactions_to_disp, @id]
+        $1, $2, $3
+        ) WHERE id = $4"
+    values = [@username, @name, @monthly_budget, @id]
     SqlRunner.run(sql, values)
   end
 

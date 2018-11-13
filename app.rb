@@ -21,3 +21,7 @@ get '/' do
   @transactions_present = Transaction.present
   erb(:"/index")
 end
+
+post '/filter' do
+  Transaction.present(params)
+end

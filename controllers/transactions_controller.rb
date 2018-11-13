@@ -9,8 +9,6 @@ end
 post '/transactions' do
   # Hard coding user id as not implementing log-in system
   params.merge!("user_id" => 1)
-  # Hard coding timestamp for now
-  params.merge!("time_stamp" => "09/30/18")
   transaction = Transaction.new(params)
   transaction.save
   redirect to "/transactions"

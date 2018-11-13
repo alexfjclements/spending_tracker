@@ -11,14 +11,12 @@ require_relative('../models/user')
 user1 = User.new({
   'username' => 'Bob',
   'name' => 'Robert',
-  'monthly_budget' => 450,
-  'transactions_to_disp' => 50
+  'monthly_budget' => 450
   })
 user2 = User.new({
   'username' => 'RandomUsernameGeneratorFail',
   'name' => 'James',
-  'monthly_budget' => 400,
-  'transactions_to_disp' => 30
+  'monthly_budget' => 400
   })
 
   user1.save
@@ -66,7 +64,7 @@ transaction1 = Transaction.new({
   'merchant_id' => 1,
   'label_id' => 1,
   'amount' => 30,
-  'time_stamp' => '12/08/18'
+  'time_stamp' => '2018-5-12'
   })
 
 transaction2 = Transaction.new({
@@ -74,15 +72,15 @@ transaction2 = Transaction.new({
   'merchant_id' => 1,
   'label_id' => 1,
   'amount' => 30,
-  'time_stamp' => '12/08/18'
+  'time_stamp' => '2018-1-12'
   })
 
 transaction3 = Transaction.new({
-  'user_id' => user2.id,
+  'user_id' => user1.id,
   'merchant_id' => 1,
   'label_id' => 1,
   'amount' => 30,
-  'time_stamp' => '12/08/18'
+  'time_stamp' => '2017-5-12'
   })
 
 transaction4 = Transaction.new({
@@ -90,7 +88,7 @@ transaction4 = Transaction.new({
   'merchant_id' => 1,
   'label_id' => 1,
   'amount' => 30,
-  'time_stamp' => '12/08/18'
+  'time_stamp' => '2017-1-12'
   })
 
 transaction1.save

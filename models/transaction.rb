@@ -13,7 +13,7 @@ class Transaction
     @merchant_id = options['merchant_id'].to_i
     @label_id = options['label_id'].to_i
     @amount = options['amount'].to_f
-    @time_stamp = Date.today
+    @time_stamp = options['time_stamp'] ? options['time_stamp'] : Date.today
   end
 
   # **************************************************
@@ -40,21 +40,11 @@ class Transaction
     return transactions.map { |transaction| Transaction.new(transaction) }.first
   end
 
-  def self.present()
-    # Hard coded user1
-    sql = "SELECT
-      transactions.id,
-      merchants.name,
-      transactions.amount,
-      labels.label,
-      transactions.time_stamp
-      FROM
-      transactions
-      INNER JOIN merchants
-      ON transactions.merchant_id = merchants.id
-      INNER JOIN labels
-      ON transactions.label_id = labels.id
-      WHERE transactions.user_id = 1;"
+  def self.present(options = {})
+    label_id = options['label_id'] ? options['label_id'] : 0
+    merchant_id = options['merchant_id'] ? options['merchant_id'] : 0
+    month_range = options['month_range'] ? options['month_range'] : 1
+    sql = Transaction.sql_query_construct(label_id, merchant_id, month_range)
     results = SqlRunner.run(sql)
     return results.map { |result| TransactionPresent.new(result) }
   end
@@ -63,7 +53,7 @@ class Transaction
     sum = 0
     transactions = self.all
     transactions.each do |transaction|
-      sum += transaction.amount if user_id == transaction.user_id && transaction.time_stamp.month.to_i == Date.today.month.to_i
+      sum += transaction.amount if user_id == transaction.user_id && Date.parse(transaction.time_stamp).month.to_i == Date.today.month.to_i
     end
     return sum
   end
@@ -93,6 +83,31 @@ class Transaction
     WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def self.sql_query_construct(label_id, merchant_id, month_range)
+    sql = "SELECT
+      transactions.id,
+      merchants.name,
+      transactions.amount,
+      labels.label,
+      transactions.time_stamp
+      FROM
+      transactions
+      INNER JOIN merchants
+      ON transactions.merchant_id = merchants.id
+      INNER JOIN labels
+      ON transactions.label_id = labels.id
+      WHERE transactions.user_id = 1"
+    sql << " AND label_id = #{label_id}" if label_id != 0
+    sql << " AND merchant_id = #{merchant_id}" if merchant_id != 0
+    if month_range != "all_time"
+      todays_date = Date.today
+      start_date = todays_date.prev_month(month_range)
+      sql << " AND transactions.time_stamp >='#{start_date}' AND transactions.time_stamp <= '#{todays_date}'"
+    end
+    sql << ";"
+    return sql
   end
 
 end

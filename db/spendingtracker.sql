@@ -7,8 +7,7 @@ CREATE TABLE users (
   id SERIAL4 PRIMARY KEY,
   username VARCHAR(255) not null,
   name VARCHAR(255),
-  monthly_budget DECIMAL(8, 2),
-  transactions_to_disp INT4
+  monthly_budget DECIMAL(8, 2)
 );
 
 CREATE TABLE merchants (
