@@ -64,7 +64,7 @@ transaction1 = Transaction.new({
   'merchant_id' => 1,
   'label_id' => 1,
   'amount' => 30,
-  'time_stamp' => '2018-5-12'
+  'time_stamp' => '2017-1-12'
   })
 
 transaction2 = Transaction.new({
@@ -72,7 +72,7 @@ transaction2 = Transaction.new({
   'merchant_id' => 1,
   'label_id' => 1,
   'amount' => 30,
-  'time_stamp' => '2018-1-12'
+  'time_stamp' => '2017-5-12'
   })
 
 transaction3 = Transaction.new({
@@ -80,7 +80,7 @@ transaction3 = Transaction.new({
   'merchant_id' => 1,
   'label_id' => 1,
   'amount' => 30,
-  'time_stamp' => '2017-5-12'
+  'time_stamp' => '2018-1-12'
   })
 
 transaction4 = Transaction.new({
@@ -88,7 +88,7 @@ transaction4 = Transaction.new({
   'merchant_id' => 1,
   'label_id' => 1,
   'amount' => 30,
-  'time_stamp' => '2017-1-12'
+  'time_stamp' => '2018-5-12'
   })
 
 transaction1.save

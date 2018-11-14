@@ -1,7 +1,30 @@
-<p>Insert welcome message...</p>
-
+<br>
 <br>
 <b><%= "You have £" + @user.cash_remaining.to_f.round(2).to_s + " remaining this month." %></b>
+<br>
+<br>
+<form class="filter" action="/" method="get">
+  <select name="merchant_id">
+    <option value="0">No Filter</option>
+    <% @merchants.each do |merchant| %>
+      <option value="<%=merchant.id%>"><%=merchant.name.capitalize%></option>
+    <% end  %>
+  </select>
+  <select name="label_id">
+    <option value="0">No Filter</option>
+  <% @labels.each do |label| %>
+    <option value="<%=label.id%>"><%=label.label.capitalize%></option>
+  <% end  %>
+  </select>
+  <select name="month_range">
+    <option value="1">Last Month</option>
+    <option value="3">Last 3 Months</option>
+    <option value="6">Last 6 Months</option>
+    <option value="12">Last Year</option>
+    <option value="all_time">All Time</option>
+  </select>
+  <input class="btn btn--action-fltr" type='submit' value="Filter">
+</form>
 <br>
 <br>
 <div class="transaction-list">

@@ -18,10 +18,8 @@ get '/' do
   # Hard coding user id as not implementing log-in system
   @user = User.find(1)
   @transactions = Transaction.all
-  @transactions_present = Transaction.present
+  @transactions_present = Transaction.present(params)
+  @merchants = Merchant.all()
+  @labels = Label.all()
   erb(:"/index")
-end
-
-post '/filter' do
-  Transaction.present(params)
 end

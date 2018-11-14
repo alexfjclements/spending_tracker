@@ -41,8 +41,8 @@ class Transaction
   end
 
   def self.present(options = {})
-    label_id = options['label_id'] ? options['label_id'] : 0
-    merchant_id = options['merchant_id'] ? options['merchant_id'] : 0
+    label_id = options['label_id'] ? options['label_id'] : "0"
+    merchant_id = options['merchant_id'] ? options['merchant_id'] : "0"
     month_range = options['month_range'] ? options['month_range'] : 1
     sql = Transaction.sql_query_construct(label_id, merchant_id, month_range)
     results = SqlRunner.run(sql)
@@ -99,11 +99,11 @@ class Transaction
       INNER JOIN labels
       ON transactions.label_id = labels.id
       WHERE transactions.user_id = 1"
-    sql << " AND label_id = #{label_id}" if label_id != 0
-    sql << " AND merchant_id = #{merchant_id}" if merchant_id != 0
+    sql << " AND label_id = #{label_id}" if label_id != "0"
+    sql << " AND merchant_id = #{merchant_id}" if merchant_id != "0"
     if month_range != "all_time"
       todays_date = Date.today
-      start_date = todays_date.prev_month(month_range)
+      start_date = todays_date.prev_month(month_range.to_i)
       sql << " AND transactions.time_stamp >='#{start_date}' AND transactions.time_stamp <= '#{todays_date}'"
     end
     sql << ";"
