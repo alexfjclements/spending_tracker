@@ -30,6 +30,38 @@ main {
   padding: 25px;
 }
 
+footer {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  justify-content: flex-end;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0 20px;
+}
+
+footer li {
+  display: inline;
+}
+
+footer li img {
+  width: 32px;
+  height: 32px;
+}
+
+footer .container {
+  justify-content: flex-end;
+}
+
+.container {
+  background-color: #333;
+  height: 40px;
+  margin: 0 25px;
+  padding: 5px;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
